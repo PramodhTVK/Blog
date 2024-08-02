@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const expressLayout = require("express-ejs-layouts");
-const mainRoute = require("./routes/mainRoute");
+const mainRoute = require("./server/routes/main");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -14,3 +14,9 @@ app.set("layout", "./layouts/main");
 app.set('view engine', 'ejs');
 
 app.use("/", mainRoute);
+
+app.listen(PORT, () => {
+    console.log(`Server is running on
+    http://localhost:${PORT}`);
+}
+);
