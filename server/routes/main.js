@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Post = require("../models/Post")
+const path = require('path');
 
 router.get('',async (req,res) => {
     const perPage = 10;
@@ -47,6 +48,11 @@ router.get('/search',async (req,res) => {
     });
 
     res.render("search",{data});
+})
+
+router.get('/login',(req,res) => {
+    const loginPath = path.join(__dirname, '..', '..', 'public','html', 'login.html');
+    res.sendFile(loginPath);
 })
 
 const insertDummyPost = () => {
