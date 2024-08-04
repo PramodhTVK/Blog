@@ -7,10 +7,16 @@
     color: black;
 }
 
-.container{
+body{
     background-color: #FAF5EE;
+}
+
+.loginBody{
+    background-color: white;
+}
+
+.container{
     min-height: 100vh;
-    overflow: auto;
     position: relative;
 }
 
@@ -62,13 +68,14 @@
     width: 500px;
 }
 
-.searchButton{
+.loginButton{
     background-color: #FAF5EE;
     font-size: 16px;
     border: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     gap: 5px;
 }
 
@@ -120,7 +127,7 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
-    background-color: #FAF5EE;
+    background-color: white;
 }
 
 .articleUl li a {
@@ -128,10 +135,6 @@
     justify-content: space-between;
     align-items: center; /* Center align items vertically if needed */ /* Remove underline from links */
 }
-
-/* .articleUl li:hover {
-    filter: none;
-} */
   
 .articleUl:hover li {
     filter: blur(3px);
@@ -167,6 +170,40 @@
     max-width: 80%;
     font-size: 20px;
     margin-top: 10px;
+}
+
+.loginContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    height: 90vh;
+}
+
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+    padding: 50px;
+    background-color: #FAF5EE;
+    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
+}
+
+.loginForm input{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+}
+
+.loginSubmit{
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
 }
 
 .footer{
