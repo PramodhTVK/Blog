@@ -9,8 +9,9 @@
 
 .container{
     background-color: #FAF5EE;
-    height: 100vh;
+    min-height: 100vh;
     overflow: auto;
+    position: relative;
 }
 
 .header{
@@ -39,6 +40,28 @@
     list-style: none;
 }
 
+.searchBar{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.searchContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.searchContainer input{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    width: 500px;
+}
+
 .searchButton{
     background-color: #FAF5EE;
     font-size: 16px;
@@ -47,6 +70,12 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
+}
+
+.searchBtn{
+    background-color: #FAF5EE;
+    border: none;
+    font-size: 16px;
 }
 
 .author{
@@ -126,8 +155,23 @@
     color: black;
 }
 
-.footer{
-    margin: 30px;
+.postContent{
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.postContent p{
+    max-width: 80%;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.footer{
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translate(-50%, 0);
 }

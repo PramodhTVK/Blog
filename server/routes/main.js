@@ -35,6 +35,20 @@ router.get('/article/:id', async (req,res) => {
     }
 })
 
+router.get('/search',async (req,res) => {
+    const searchTerm = req.query.searchTerm;
+    const noSpecialChar = searchTerm.replace(/[^a-zA-Z0-9 ]/g, "");
+
+    const data = await Post.find({
+        $or: [
+            { title: new RegExp(searchTerm, 'i') },
+            { body: new RegExp(searchTerm, 'i') }
+        ]
+    });
+
+    res.render("search",{data});
+})
+
 const insertDummyPost = () => {
     const dummyPosts = [
         {

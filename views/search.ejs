@@ -1,0 +1,13 @@
+<section class="articles">
+    <h2 class="articleHeading">Search Results</h2>
+    <ul class="articleUl">
+        <% data.forEach((article) => { %>
+        <li>
+            <a href="/article/<%= article._id %>">
+                <span class="articleListTitle"><%= article.title %></span>
+                <span class="articleListDate"><%= article.createdAt.toDateString()%></span>
+            </a>
+        </li>
+        <% }) %>
+    </ul>
+</section>
