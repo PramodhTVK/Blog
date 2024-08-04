@@ -3,7 +3,7 @@ const router = express.Router();
 const Post = require("../models/Post")
 
 router.get('',async (req,res) => {
-    const perPage = 4;
+    const perPage = 10;
     const currPage = req.query.page || 1;
 
     const locals = {
@@ -22,6 +22,17 @@ router.get('',async (req,res) => {
         console.log(err);
     }
     
+})
+
+router.get('/article/:id', async (req,res) => {
+    try{
+        const slugID = req.params.id;
+        const data = await Post.findById(slugID);
+        res.render("post",{data});
+    }
+    catch(err){
+        console.log(err);
+    }
 })
 
 const insertDummyPost = () => {

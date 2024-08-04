@@ -7,9 +7,10 @@
     color: black;
 }
 
-
 .container{
     background-color: #FAF5EE;
+    height: 100vh;
+    overflow: auto;
 }
 
 .header{
@@ -126,7 +127,7 @@
 }
 
 .footer{
-    margin: 10px;
+    margin: 30px;
     display: flex;
     justify-content: center;
 }
