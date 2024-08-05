@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Post = require("../models/Post")
+const User = require("../models/User")
 const path = require('path');
 
 router.get('',async (req,res) => {
@@ -53,6 +54,36 @@ router.get('/search',async (req,res) => {
 router.get('/login',(req,res) => {
     const loginPath = path.join(__dirname, '..', '..', 'public','html', 'login.html');
     res.sendFile(loginPath);
+})
+
+router.post('/login',async (req,res) => {
+    const { username, password } = req.body;
+    const userFound = await User.findOne({username: username, password: password});
+
+    if(userFound){
+        res.redirect("/");
+    }
+    else{
+        res.status(400).json({message: "Invalid credentials"});
+    }
+})
+
+router.get('/register',(req,res) => {
+    const registerPath = path.join(__dirname, '..', '..', 'public','html', 'register.html');
+    res.sendFile(registerPath);
+})
+
+router.post('/register',async (req,res) => {
+    const { username, email, password } = req.body;
+    const userFound = await User.findOne({email: email});
+
+    if(userFound){
+        res.status(400).json({message: "User already exists"});
+    }
+    else{
+        User.create({username,email,password});
+        res.redirect("/");
+    }
 })
 
 const insertDummyPost = () => {

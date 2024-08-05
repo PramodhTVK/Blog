@@ -203,7 +203,13 @@ body{
     color: black;
     border-radius: 10px;
     border: none;
+    padding: 10px;
     cursor: pointer;
+    font-weight: bold;
+}
+
+.loginText{
+    margin-top: 20px;
 }
 
 .footer{
