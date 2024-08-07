@@ -10,7 +10,11 @@
 
     <div class="headerButton">
         <button class="loginButton" id="loginButton">
-            Login
+            <% if (isLoggedIn) { %>
+                Logout
+            <% } else { %>
+                Login
+            <% } %>
         </button>
     </div>
 </header>
