@@ -9,7 +9,10 @@ const { setUserID } = require("../../service/auth")
 router.get('',async (req,res) => {
     const perPage = 10;
     const currPage = req.query.page || 1;
-    const sessionID = req.cookies?.sessionID;
+    const cookies = req.headers.cookie;
+    const username = cookies?.split(';').find(cookie => cookie.trim().startsWith('username='))?.split('=')[1] || 'Guest';
+    const sessionID = cookies?.split(';').find(cookie => cookie.trim().startsWith('sessionID='))?.split('=')[1];
+    console.log('Username:', username);
     const isLoggedIn = sessionID ? true : false;
 
     const locals = {
@@ -22,7 +25,7 @@ router.get('',async (req,res) => {
         const count = await Post.countDocuments();
         const nextPage = parseInt(currPage) + 1;
         const hasNextPage = nextPage <= Math.ceil(count/perPage);
-        res.render("index",{locals,data,currentPage: currPage, nextPage: hasNextPage ? nextPage : null,isLoggedIn});
+        res.render("index",{locals,data,currentPage: currPage, nextPage: hasNextPage ? nextPage : null,isLoggedIn,username});
     }
     catch(err){
         console.log(err);
@@ -69,6 +72,7 @@ router.post('/login',async (req,res) => {
         const isLoggedIn = !!sessionID;
         setUserID(sessionID, userFound._id);
         res.cookie("sessionID", sessionID);
+        res.cookie("username", userFound.username);
         res.redirect("/");
     }
     else{
@@ -92,6 +96,10 @@ router.post('/register',async (req,res) => {
         User.create({username,email,password});
         res.redirect("/");
     }
+})
+
+router.get('/create', (req,res) => {
+    res.render("create");
 })
 
 const insertDummyPost = () => {

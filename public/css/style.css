@@ -11,6 +11,14 @@ body{
     background-color: #FAF5EE;
 }
 
+input:focus, 
+textarea:focus, 
+select:focus, 
+button:focus {
+    outline: none;
+}
+
+
 .loginBody{
     background-color: white;
 }
@@ -106,6 +114,27 @@ body{
     height: 528px;
 }
 
+.createBlogs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.blogContainer {
+    border-style: dotted;
+    border-width: 2px; /* Adjust the border width as needed */
+    border-color: #000000; /* Set the border color */
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .createBlogButton{
+    text-decoration: none;
+  }
 /*Article list*/
 
 .articles{

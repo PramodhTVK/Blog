@@ -1,10 +1,18 @@
 <div class="author">
-    <h1 class="authorHeading">Welcome to BlogIT</h1>
+    <h1 class="authorHeading">Welcome <%= username %>!</h1>
     <p class="authorBody">A blog app with minimalist design pattern.</p>
 </div>
 
 <div class="imageContainer">
     <img src="/img/hero-image.webp" alt="Author" class="authorImage" width="981" height="528">
+</div>
+
+<div class="createBlogs" id="createBlogs">
+    <div class="blogContainer">
+        <a href="/create" class="createBlogButton">
+            <span>Create a new blog</span>
+        </a>       
+    </div>
 </div>
 
 <section class="articles">
