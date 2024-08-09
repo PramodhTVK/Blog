@@ -12,10 +12,20 @@ body{
 }
 
 input:focus, 
-textarea:focus, 
 select:focus, 
 button:focus {
     outline: none;
+}
+input[type="text"], 
+textarea {
+    outline: none;
+    border: 1px solid white; /* Add a subtle border */
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    border: 1px solid white; /* Optionally change border color on focus */
 }
 
 
@@ -239,6 +249,44 @@ button:focus {
 
 .loginText{
     margin-top: 20px;
+}
+
+.createContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.createTitle , .createContent{
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    border-radius: 10px;
+    outline: none;
+}
+.createTitle input{
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.createContent textarea{
+    border-radius: 5px;
+}
+
+.createBtn{
+    color: white;
+    background-color: black;
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .footer{
